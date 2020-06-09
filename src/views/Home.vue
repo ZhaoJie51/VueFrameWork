@@ -1,26 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <van-switch v-model="checked" />
+    <div class="block">测试</div>
+    <van-switch v-model="checked" size="14" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-import { Switch } from "vant";
+import {Switch} from 'vant'
 
 export default {
-  name: "Home",
+  name: 'Home',
   data() {
     return {
       checked: true
-    };
+    }
   },
   components: {
-    [Switch.name]: Switch,
-    HelloWorld
+    [Switch.name]: Switch
   }
-};
+}
 </script>
+
+<style lang="scss" scoped>
+.block {
+  font-size: 12px;
+  width: 100px;
+  height: 100px;
+  background: #f3f3f3;
+}
+</style>
