@@ -8,6 +8,7 @@ import './plugins/vant'
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'amfe-flexible/index.js'
+import '@vant/touch-emulator'
 
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
