@@ -1,26 +1,42 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
+export const router = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'index',
+    component: resolve => require(['@/views/index'], resolve),
+    meta: {
+      title: '首页',
+      keepAlive: false
+    }
   },
   {
     path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    name: 'about',
+    component: resolve => require(['@/views/about'], resolve),
+    meta: {
+      title: '关于我们',
+      keepAlive: false
+    }
+  },
+  {
+    path: '*',
+    name: '404',
+    component: resolve => require(['@/views/notFound'], resolve),
+    meta: {
+      title: '404'
+    }
   }
 ]
+const createRouter = () =>
+  new Router({
+    mode: 'history',
+    base: 'process.env.BASE_URL',
+    scrollBehavior: () => ({y: 0}),
+    routes: router
+  })
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
-
-export default router
+export default createRouter()
