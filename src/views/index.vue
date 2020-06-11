@@ -1,14 +1,11 @@
 <template>
-  <div class="home">
-    <div class="block">测试</div>
-    <van-switch v-model="checked" size="14" />
-    <van-number-keyboard :show="show" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
 import {Switch, NumberKeyboard} from 'vant'
-
+import {newsList} from '@/api/newsList'
+import {baseUrl} from '@/config'
 export default {
   name: 'Home',
   data() {
@@ -20,6 +17,22 @@ export default {
   components: {
     [Switch.name]: Switch,
     [NumberKeyboard.name]: NumberKeyboard
+  },
+  mounted() {
+    console.log(baseUrl)
+    newsList()
+      .then(res => {
+        // 获取数据成功后的其他操作
+      })
+      .catch(error => {
+        // error
+        console.log(error)
+      })
+    // var that = this //用that去保存vue的实例
+    // that.$axios.get('/api/newsList').then(function(res) {
+    //   that.message = res.data.list
+    //   console.log(res)
+    // })
   }
 }
 </script>
