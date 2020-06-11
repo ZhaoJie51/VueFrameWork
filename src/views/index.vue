@@ -4,8 +4,7 @@
 
 <script>
 import {Switch, NumberKeyboard} from 'vant'
-import {newsList} from '@/api/newsList'
-import {baseUrl} from '@/config'
+import {api1,proxy_list} from '@/utils/api'
 export default {
   name: 'Home',
   data() {
@@ -19,20 +18,30 @@ export default {
     [NumberKeyboard.name]: NumberKeyboard
   },
   mounted() {
-    console.log(baseUrl)
-    newsList()
+    api1({
+      type: 0,
+      sort: 1
+    })
       .then(res => {
-        // 获取数据成功后的其他操作
+        // success
+        console.log(res)
       })
       .catch(error => {
         // error
         console.log(error)
       })
-    // var that = this //用that去保存vue的实例
-    // that.$axios.get('/api/newsList').then(function(res) {
-    //   that.message = res.data.list
-    //   console.log(res)
-    // })
+    proxy_list({
+      type: 'top',
+      key: '3dc86b09a2ee2477a5baa80ee70fcdf5'
+    })
+      .then(res => {
+        // success
+        console.log(res)
+      })
+      .catch(error => {
+        // error
+        console.log(error)
+      })
   }
 }
 </script>

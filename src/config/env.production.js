@@ -2,5 +2,5 @@
 module.exports = {
   baseUrl: 'https://www.yuechengggroup.com',
   baseApi: 'https://www.yuechengggroup.com/api',
-  MOCK: true
+  MOCK: false
 }

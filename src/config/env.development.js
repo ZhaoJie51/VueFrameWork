@@ -1,6 +1,6 @@
 // 本地环境
 module.exports = {
-  baseUrl: 'https://dev.yuechengggroup.com',
-  baseApi: 'https://dev.yuechengggroup.com/api',
+  baseUrl: '',
+  baseApi: '/api',
   MOCK: true
 }

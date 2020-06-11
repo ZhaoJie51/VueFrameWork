@@ -7,12 +7,12 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'amfe-flexible/index.js'
 import '@vant/touch-emulator'
-import Mock from '@/mock'
-// import axios from 'axios'
+let {MOCK} = require('@/config')
 Vue.config.productionTip = false
-// Vue.prototype.$axios = axios
-if (process.env.MOCK) {
-  Mock.startMock()
+
+// 开发环境开启mock
+if (MOCK) {
+  require('./mock')
 }
 
 new Vue({
