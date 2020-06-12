@@ -1,12 +1,12 @@
 <template>
-  <div class="home"></div>
+  <div class="index"></div>
 </template>
 
 <script>
 import {Switch, NumberKeyboard} from 'vant'
 import {api1,proxy_list} from '@/utils/api'
 export default {
-  name: 'Home',
+  name: 'index',
   data() {
     return {
       show: true,
