@@ -14,6 +14,15 @@ export const router = [
     }
   },
   {
+    path: '/index',
+    name: 'index',
+    component: resolve => require(['@/views/index'], resolve),
+    meta: {
+      title: '首页',
+      keepAlive: false
+    }
+  },
+  {
     path: '/about',
     name: 'about',
     component: resolve => require(['@/views/about'], resolve),
@@ -27,14 +36,15 @@ export const router = [
     name: '404',
     component: resolve => require(['@/views/notFound'], resolve),
     meta: {
-      title: '404'
+      title: '404',
+      keepAlive: true
     }
   }
 ]
 const createRouter = () =>
   new Router({
     mode: 'history',
-    base: 'process.env.BASE_URL',
+    base: process.env.BASE_URL,
     scrollBehavior: () => ({y: 0}),
     routes: router
   })

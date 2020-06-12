@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './plugins/vant'
+import './utils/vant'
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'amfe-flexible/index.js'
@@ -14,6 +14,13 @@ Vue.config.productionTip = false
 if (MOCK) {
   require('./mock')
 }
+window.addEventListener(
+  'popstate',
+  function(e) {
+    router.isBack = true
+  },
+  false
+)
 
 new Vue({
   router,
