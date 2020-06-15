@@ -7,6 +7,9 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'amfe-flexible/index.js'
 import '@vant/touch-emulator'
+// 国际化
+import {i18n, vantLocales} from './lang'
+
 let {MOCK} = require('@/config')
 Vue.config.productionTip = false
 
@@ -22,8 +25,12 @@ window.addEventListener(
   false
 )
 
+Vue.prototype.$Local = vantLocales;
+vantLocales(i18n.locale)
+
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

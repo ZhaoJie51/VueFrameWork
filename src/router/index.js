@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import basic from './basic'
 Vue.use(Router)
 
 export const router = [
@@ -22,15 +22,7 @@ export const router = [
       keepAlive: false
     }
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: resolve => require(['@/views/about'], resolve),
-    meta: {
-      title: '关于我们',
-      keepAlive: false
-    }
-  },
+  ...basic,
   {
     path: '*',
     name: '404',
